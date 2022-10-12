@@ -1,0 +1,50 @@
+/* Пошук залишку */
+function Remainder(a,m){
+	if(a > 0) {return a % m}
+  else{
+  	let i = 0 
+    while(i * m > a){
+    	i--;
+    }
+    let x = 0
+    while(i*m + x != a){
+    	x+=1
+    }
+    return x
+}
+}
+
+
+
+/* -100 mod 7 = x */
+console.log(Remainder(-100, 7))
+/* -25 mod 7 = x */
+console.log(Remainder(-25, 7))
+/* 13 mod 5 = x */
+console.log(Remainder(13, 5))
+
+
+
+/* Випадкове просте число у діапазоні */
+
+function getPrimaryRandom(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  let war = Math.floor(Math.random() * (max - min) + min)
+  if(Check(war)){
+  	return war
+  } else{
+  	return getPrimaryRandom(min, max)
+  }
+}
+
+function Check(num){
+	for(let i=2; i<num; i++){
+  	if(num % i == 0){
+    	return false
+    }
+	}
+  return true
+}
+
+console.log(getPrimaryRandom(3, 99))
